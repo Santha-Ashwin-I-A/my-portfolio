@@ -1,85 +1,31 @@
 
 import './App.css'
 import { TextGenerateEffect } from './Components/ui/text-generate'
-import { navBars } from './data/data'
-import {
-  Navbar,
-  NavBody,
-  NavItems,
-  MobileNav,
-  NavbarLogo,
-  NavbarButton,
-  MobileNavHeader,
-  MobileNavToggle,
-  MobileNavMenu,
-} from "./Components/ui/resizable-navbar";
-import { useState } from "react";
+
+import { NavBar } from './Components/nav-bar';
+import { ArrowRight } from 'lucide-react';
 
 function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const words = " Hi, I'm Santha Ashwin"
-  const navItems = navBars;
+  const mySelf = "A passionate Full-Stack Developer, Who loves to learn new tech and develop myself everyday"
   return (
     <>  
-      <div className=" h-screen  bg-cyan-500 text-white">
-      <div className="relative w-full">
-      <Navbar>
-        {/* Desktop Navigation */}
-        <NavBody>
-          <NavbarLogo />
-          <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            <NavbarButton variant="secondary">Login</NavbarButton>
-            <NavbarButton variant="primary">Book a call</NavbarButton>
-          </div>
-        </NavBody>
- 
-        {/* Mobile Navigation */}
-        <MobileNav>
-          <MobileNavHeader>
-            <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </MobileNavHeader>
- 
-          <MobileNavMenu
-            isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
-          >
-            {navItems.map((item, idx) => (
-              <a
-                key={`mobile-link-${idx}`}
-                href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
-              >
-                <span className="block">{item.name}</span>
-              </a>
-            ))}
-            <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Book a call
-              </NavbarButton>
-            </div>
-          </MobileNavMenu>
-        </MobileNav>
-      </Navbar>
+      <div className=" h-screen  bg-black text-white">
+      <div className= " w-full">
+      <NavBar/>
       <div className='p-4'>
-          <div className="p-4">
+          <div className="p-4 mx-8 border-2 ">
             <TextGenerateEffect className='text-6xl' words={words}/>
+            <TextGenerateEffect className='text-4xl w-[900px]' words={mySelf}/>
+            <div className='top-2 flex text-3xl mt-2 '>
+              About Myself
+              <div className='relative left-[8px] '>
+                <button className='flex border-2 rounded-full ml-2 hover:bg-white hover:text-black'>
+                  <div className='ml-2'>Go to About</div><ArrowRight className='w-6 h-10 mr-2'/>
+                </button>
+              </div>
+            </div>
           </div>
        </div>
       </div>
