@@ -15,7 +15,7 @@ function App() {
       <div className= " w-full">
       <NavBar/>
       <div className='p-4'>
-          <div className="p-4 mx-8 border-2 ">
+          <div className="p-4 mx-8 border-2 h-[500px]">
             <TextGenerateEffect className='text-6xl' words={words}/>
             <TextGenerateEffect className='text-4xl w-[900px]' words={mySelf}/>
             <div className='top-2 flex text-3xl mt-2 '>
